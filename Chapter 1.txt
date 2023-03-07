@@ -1,0 +1,6 @@
+1.1 A register is a small high speed memory used to store temporary results and certain control information.
+1.2 A proccessor follows the fetch-execute cycle reaptedly reading simple instructions from memory and executing them.
+1.3 Integrated circuits consist of a proccessor, a memory and I/O interface. Different integrated circuits are connected by buses.
+1.4 Integrated circuits connected by buses, each of them consist of a processor that communicates with memory to read instructions from and them execute them and finally can write result or read more instructions before execution via the I/O interface.
+1.5/1.6 Machine language has a one to one relationship with the assembly language, the assembly language programmer can write code in a human readable and understandable format which reduces the difficulty and adds a layer of abstraction from machine's language which basically consists only of zeros and ones.
+1.7 Assembly language should be used when writing critical programs for embedded systems that have little memory and timing problems. Also, for machine-specific operations in an operating system kernel.
