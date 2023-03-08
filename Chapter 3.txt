@@ -1,0 +1,6 @@
+3.1 The main idea behind RISC processors is to make the common instructions fast since they count for almost 80% of the total instructions in a program.
+3.2 Instructions
+3.3 Pointing to the next instruction.
+3.4 Simulated machines are not prone to hardware errors, can be easier to keep up with the fast evolution pace of technology.
+3.5 The kernel is the middle man betwween the hardware and the applications program, through system calls he handle the I/O commands.
+3.6 $31
