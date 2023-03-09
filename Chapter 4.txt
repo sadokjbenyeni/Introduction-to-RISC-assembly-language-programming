@@ -1,0 +1,12 @@
+4.1 Each line in the source code can either translate into a machine instruction, can generate data elements or may provide information to assembler program.
+4.2 Syntax error : typo-error/spotted by compiler/throws error or exception
+    Logical error: result error/unspotted by compiler/silent
+4.3 Debugging
+4.4 A specific position in code where the program suspends execution.
+4.5 Holding results of multiplication
+4.6 Visibility/Readbility
+4.7 la: load address (loads values from memory into register)
+    lb: load bytes (loads bytes from memory into register)
+    li: load immediate (loads instruction into register)
+    lw: load words (loads words from memory into register)
+4.8 Operation Operand(Holds result),Operand,Operand(optional)
