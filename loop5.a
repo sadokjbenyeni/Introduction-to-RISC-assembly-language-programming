@@ -1,0 +1,56 @@
+## Start of file loop5.a
+##
+## Question:
+## Replace every second character in the
+## string "charstr" with 'X'. that is
+## the first, third, fifth, etc.
+## There will always be an even number
+## of characters in "charstr".
+##
+## Output format must be:
+## "XbXdXf"
+
+#########################################
+#                                       #
+#              text segment             #
+#                                       #
+#########################################
+
+        .text
+        .globl main
+
+main:                       # execution starts here
+        la $t1,charstr      # t1 points to the string
+        li $t2,'X'          # t2 recieves value 'X'
+
+nextCh: lb $t0, ($t1)       # get byte at t1 position
+        beqz $t0,strEnd     # zero means end of string
+        sb $t2, ($t1)       # set odd number letter to 'X'       
+        add $t1,2           # Add 2 to skips even positions
+        j nextCh            # loop over         
+
+strEnd:
+        la $a0,charstr
+        li $v0,4
+        syscall         # print
+
+        la $a0,endl     # system call to print
+        li $v0,4        # out a newline
+        syscall
+
+        li $v0,10
+        syscall         # au revoir...
+
+
+#########################################
+#                                       #
+#              data segment             #
+#                                       #
+#########################################
+
+        .data
+charstr:    
+        .asciiz "abcdef"
+endl:   .asciiz "\n"
+##
+## End of file loop5.a

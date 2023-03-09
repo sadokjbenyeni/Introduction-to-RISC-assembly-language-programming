@@ -1,0 +1,7 @@
+5.1 Determine the flow of instructions execution
+5.2 Provide checks through conditions before executing certain instructions
+5.3 By comparing the incrementing byte value to zero
+5.4 It returns value of the address pointed to.
+5.5 Is the address of a memory location.
+5.6 j {label}
+5.7 li $t{0-3} {ASCII value}

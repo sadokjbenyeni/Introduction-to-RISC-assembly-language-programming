@@ -1,0 +1,49 @@
+## Start of file loop3.A
+##
+## Question:
+## Replace all occurrences of 'a' with
+## 'A' in the string "chararray" and
+## print th resulting string.
+##
+## Output format must be:
+## "AbbbAAbbbAbAbAb"
+
+#########################################
+#                                       #
+#              text segment             #
+#                                       #
+#########################################
+
+        .text
+        .globl main
+main:                    # exectution starts here
+        la $t2,chararray # t2 points to the string
+        li $t1,'A'
+
+nextCh: lb $t0, ($t2)    # get a byte from string
+        beqz $t0,strEnd  # zero means end of string
+        bne $t0,'a',nota 
+        sb $t1, ($t2)    # store upper case A
+nota:   add $t2,1        # move pointer one character
+        j nextCh         # go round the loop again
+
+strEnd:
+        la $a0,chararray
+        li $v0,4
+        syscall          # print
+
+        li $v0,10
+        syscall          # au revoir...
+
+
+#########################################
+#                                       #
+#              data segment             #
+#                                       #
+#########################################
+
+        .data
+chararray:    .asciiz "abbbaabbbababab\n"
+
+##
+## End of file loop3.a

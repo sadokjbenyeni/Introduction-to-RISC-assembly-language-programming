@@ -1,0 +1,56 @@
+## Start of file loop4.a
+##
+## Question:
+## Swap each pair of elements in
+## the string "chararray" and
+## print the resulting string.
+## There will always be an even number
+## of characters in "chararray".
+##
+## Output format must be:
+## "badcfe"
+
+#########################################
+#                                       #
+#              text segment             #
+#                                       #
+#########################################
+
+        .text
+        .globl main
+
+main:                       # execution starts here
+        la $t1,chararray    # t1 points to the string
+        la $t2,chararray    # t2 points to the string
+        add $t2,$t2,1       # t2 is one position ahead of t1
+
+nextCh: lb $t0, ($t1)       # get byte at t1 position
+        lb $t3, ($t2)       # get byte at t2 position
+        beqz $t3,strEnd     # zero means end of string
+        sb $t3, ($t1)       # set 1st letter with 2nd letter       
+        add $t1,2           # t1 moves 2 positions
+        sb $t0, ($t2)       # set 2nd letter with 1st letter
+        add $t2,2           # t2 moves 2 positions
+        j nextCh            # loop over
+            
+
+strEnd:
+        la $a0,chararray
+        li $v0,4
+        syscall         # print
+
+        li $v0,10
+        syscall         # au revoir...
+
+
+#########################################
+#                                       #
+#              data segment             #
+#                                       #
+#########################################
+
+        .data
+chararray:    
+        .asciiz "abcdef\n"
+##
+## End of file loop4.a
