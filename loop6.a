@@ -1,0 +1,60 @@
+## Start of file loop6.a
+##
+## Question:
+## "numbers" is an array of five words.
+## Calculate the sum of all elements in "numbers"
+## whose value is less than 1000.
+##
+## Output format must be:
+## "sum = 11"
+
+#########################################
+#                                       #
+#              text segment             #
+#                                       #
+#########################################
+
+        .text
+        .globl main
+main:                           # execution starts here
+        la $t0,array            # $t0 will point to elements
+        lw $t2,($t0)            # initializes sum
+        add $t0,$t0,4           # pointer to start at a[i]
+
+loop:  lw $t4,($t0)             # load next word from array
+       bge $t4,2000,addNot
+       add $t2,$t2,$t4          # add a[i] to sum
+       add $t0,$t0,4            # increment pointer by word
+       bnez $t4,loop            # and continue if counter > 0
+
+addNot:add $t0,$t0,4            # increment pointer by word
+       bnez $t4,loop            # and continue if counter > 0
+
+       la $a0,ans
+       li $v0,4
+       syscall                  # print "sum = "
+
+       move $a0,$t2
+       li $v0,1
+       syscall                  # print min
+
+       la $a0,endl              # system call to print
+       li $v0,4                 # out a newline
+       syscall                  
+
+       li $v0,10
+       syscall                  # au revoir...
+
+#########################################
+#                                       #
+#              data segment             #
+#                                       #
+#########################################
+
+        .data
+
+array:  .word 3 2000 2 6 2000
+endl:   .asciiz "\n"
+ans:    .asciiz "sum = "
+##
+##  end of file loop6.a

@@ -1,0 +1,60 @@
+## Start of file loop1.a
+##
+## Question:
+## calculate the sum of the elements in "array"
+## "count" holds the number of elements in "array"
+## 
+## Output format must be:
+## "sum = 15"
+
+#########################################
+#                                       #
+#              text segment             #
+#                                       #
+#########################################
+
+        .text
+        .globl main
+main:                           # execution starts here
+        la $t0,array            # $t0 will point to elements
+        lw $t1,count            # exit loop when $t1 is 0
+        lw $t2,($t0)            # initializes sum
+        add $t0,$t0,4           # pointer to start at a[i]
+        add $t1,$t1,-1          # and go round count-1 times
+
+loop:  lw $t4,($t0)             # load next word from array
+       add $t2,$t2,$t4          # add a[i] to sum
+       add $t0,$t0,4            # increment pointer by word
+       add $t1,$t1,-1           # decrement counter by 1
+       bnez $t1,loop            # and continue if counter > 0
+
+       la $a0,ans1
+       li $v0,4
+       syscall                  # print "sum = "
+
+       move $a0,$t2
+       li $v0,1
+       syscall                  # print min
+
+       la $a0,endl              # system call to print
+       li $v0,4                 # out a newline
+       syscall                  
+
+       li $v0,10
+       syscall                  # au revoir...
+
+#########################################
+#                                       #
+#              data segment             #
+#                                       #
+#########################################
+
+        .data
+
+array:  .word 3 4 2 6
+count:  .word 4
+endl:   .asciiz "\n"
+ans1:   .asciiz "sum = "
+
+##
+##  end of file loop1.a

@@ -1,0 +1,5 @@
+6.1 Ways of determining the address
+6.2 4 bytes
+6.3 5 bits
+6.4 16 bits
+
