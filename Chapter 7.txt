@@ -1,0 +1,10 @@
+7.1 a | b | s
+    ---------
+    0   0   0
+    1   0   1
+    0   1   1
+    1   1   0
+
+7.2 Logical doesn't conserve numbere's sign while the arithmetic does.
+7.3 Masking a digit
+7.4 Sets the lower half of the string to a zero bits wihout affecting the other high half.
