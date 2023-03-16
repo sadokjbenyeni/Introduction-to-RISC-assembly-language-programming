@@ -1,0 +1,6 @@
+8.1 Pushing and popping
+8.2 Stack frames are special type of data structure used in procedure calls.
+8.3 There improve the structure of the program, reduce redundency and make programming easier.
+8.4 Parameters of a procedure are passed in the argument registers $a0..$a3
+8.5 The return mechanism in MIPS uses a jump instruction to put the return address into a special register $ra
+8.6 The advantage is almost the same for both registers which is knowing what to save and what not to.
